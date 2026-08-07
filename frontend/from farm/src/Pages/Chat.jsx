@@ -3,7 +3,10 @@ import { useParams } from "react-router-dom";
 import { io } from "socket.io-client";
 import api from "../api/axios";
 
-const socket = io("https://from-farm.onrender.com");
+const socket = io("https://from-farm.onrender.com", {
+  transports: ["websocket", "polling"],
+  withCredentials: true,
+});
 
 function Chat() {
   const { userId } = useParams();
