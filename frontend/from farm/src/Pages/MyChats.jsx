@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import api from "../api/axios";
 import { io } from "socket.io-client";
 
-const socket = io("https://from-farm.onrender.com");
+const socket = io("https://from-farm-fullstack.onrender.com");
 function MyChats() {
     
     const [users, setUsers] = useState([]);

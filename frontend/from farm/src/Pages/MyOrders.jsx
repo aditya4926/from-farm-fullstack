@@ -115,7 +115,7 @@ function MyOrders() {
                             </div>
 
                             <a
-                                href={`https://from-farm.onrender.com/api/orders/invoice/${order._id}`}
+                                href={`https://from-farm-fullstack.onrender.com/api/orders/invoice/${order._id}`}
                                 target="_blank"
                                 rel="noreferrer"
                                 className="inline-block bg-green-600 hover:bg-green-700 text-white px-5 py-3 rounded-xl mt-6"
