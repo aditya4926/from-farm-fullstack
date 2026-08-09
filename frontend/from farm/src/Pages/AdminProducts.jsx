@@ -34,7 +34,7 @@ function AdminProducts() {
     const token = localStorage.getItem("token");
 
     await api.delete(
-      `/admin/products/`,
+       `/admin/products/${id}`,
       {
         headers: {
           Authorization: `Bearer ${token}`,
