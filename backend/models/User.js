@@ -10,7 +10,6 @@ const userSchema = new mongoose.Schema(
     mobile: {
       type: String,
       required: true,
-      unique: true,
     },
 
     role: {
@@ -45,6 +44,10 @@ const userSchema = new mongoose.Schema(
   {
     timestamps: true,
   }
+);
+userSchema.index(
+  { mobile: 1, role: 1 },
+  { unique: true }
 );
 
 module.exports = mongoose.model("User", userSchema);

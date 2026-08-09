@@ -18,11 +18,14 @@ const registerUser = async (req, res) => {
       password,
     } = req.body;
 
-    const userExists = await User.findOne({ mobile });
+    const userExists = await User.findOne({
+      mobile,
+      role,
+    });
 
     if (userExists) {
       return res.status(400).json({
-        message: "User already exists",
+        message: `An account already exists for this mobile number as ${role}`,
       });
     }
 
@@ -62,9 +65,12 @@ const registerUser = async (req, res) => {
 };
 const loginUser = async (req, res) => {
   try {
-    const { mobile, password } = req.body;
+    const { mobile, password, role } = req.body;
 
-    const user = await User.findOne({ mobile });
+    const user = await User.findOne({
+      mobile,
+      role,
+    });
 
     if (
       user &&
@@ -263,5 +269,5 @@ module.exports = {
   uploadProfilePhoto,
   getMonthlyRevenue,
   getFarmerProfile,
-  getTopFarmers, 
+  getTopFarmers,
 };
