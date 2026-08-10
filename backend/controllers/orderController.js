@@ -12,9 +12,9 @@ const createOrder = async (req, res) => {
     const { productId, quantity, razorpayOrderId, razorpayPaymentId, paymentStatus, paymentMethod, } = req.body;
 
     const product = await Product.findById(productId)
-      .populate("productId", "title")
-      .populate("customerId", "name");
+     
     console.log("PRODUCT =", product);
+    
     if (!product) {
       return res.status(404).json({
         message: "Product not found",
@@ -30,7 +30,7 @@ const createOrder = async (req, res) => {
       productId,
       quantity,
       totalAmount,
-
+      paymentMethod,
       paymentStatus,
       razorpayOrderId,
       razorpayPaymentId,
